@@ -23,11 +23,13 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+@Service
 public class AlbumServiceImpl implements AlbumService {
     @Autowired
     private AlbumRepository albumRepository;

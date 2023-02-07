@@ -115,7 +115,6 @@ public class AuthServiceImpl implements AuthService {
         }
 
         user.setRoles(roles);
-        user.setStatus(1);
         userRepository.save(user);
 
         return ResponseEntity.ok("User registered successfully!");
