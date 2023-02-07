@@ -55,7 +55,7 @@ VALUES ('ROLE_USER');
 | POST | /auth/refreshtoken | refresh token | |
 | POST | /auth/signout | logout user | |
 
-### CATEGORY
+### CATEGORIES
 
 | Method | Url | Description | Sample Valid Request Body |
 |--------|-----|-------------|---------------------------|
@@ -64,6 +64,27 @@ VALUES ('ROLE_USER');
 | POST | /categories | add new category (logged in user is admin or moderator) | [JSON](#categorycreate)
 | PUT | /categories/{id} | update category by id (logged in user is admin or moderator) | [JSON](#categoryupdate) |
 | DELETE | /categories/{id} | delete category by id (logged in user is admin or moderator) | |
+
+### ALBUMS
+
+| Method | Url | Description | Sample Valid Request Body |
+|--------|-----|-------------|---------------------------|
+| GET | /albums?page={page}&size={size}&sortBy={sortBy} | get all album | |
+| GET | /albums/{id} | get album by id | |
+| GET | /albums/{id}/photos | get all photo by album id | |
+| POST | /albums | add new album (logged in user is user or moderator) | [JSON](#albumcreate) |
+| PUT | /albums/{id} | update album (logged in user is user or moderator) | [JSON](#albumupdate) |
+| DELETE | /albums/{id} | delete album | |
+
+### PHOTOS
+
+| Method | Url | Description | Sample Valid Request Body |
+| ------ | --- | ----------- | ------------------------- |
+| GET    | /api/photos?page={page}&size={size}&sortBy={sortBy} | Get all photos | |
+| GET    | /api/photos/{id} | Get photo by id | |
+| POST   | /api/photos | Create new photo (logged in user) | [JSON](#photocreate) |
+| PUT    | /api/photos/{id} | Update photo (logged in user or logged in user is moderator) | [JSON](#photoupdate) |
+| DELETE | /api/photos/{id} | Delete photo (logged in user or logged in user is moderator) | |
 
 ## Sample Valid JSON Request Bodys
 
@@ -99,5 +120,43 @@ VALUES ('ROLE_USER');
 ```json
 {
   "name": "category name"
+}
+```
+
+#### <a id="albumcreate">Create Album</a>
+
+```json
+{
+  "title": "new album"
+}
+```
+
+#### <a id="albumupdate">Update Album</a>
+
+```json
+{
+  "title": "new album"
+}
+```
+
+##### <a id="photocreate">Create Photo</a>
+
+```json
+{
+  "title": "photo a",
+  "url": "https://via.placeholder.com/600/92c952",
+  "thumbnailUrl": "https://via.placeholder.com/150/92c952",
+  "albumId": 2
+}
+```
+
+##### <a id="photoupdate">Update Photo</a>
+
+```json
+{
+  "title": "phto a",
+  "url": "https://via.placeholder.com/600/771796",
+  "thumbnailUrl": "https://via.placeholder.com/150/771796",
+  "albumId": 2
 }
 ```

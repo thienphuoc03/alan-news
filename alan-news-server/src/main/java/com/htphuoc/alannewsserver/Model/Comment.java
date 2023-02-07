@@ -40,8 +40,8 @@ public class Comment extends Auditable {
     @Size(min = 10, message = "Comment body must be minimum 10 characters")
     private String body;
 
-    @Column(name = "status", columnDefinition = "integer default 1")
-    private int status;
+    @Column(name = "is_active", columnDefinition = "boolean default true")
+    private Boolean isActive;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id")
@@ -54,7 +54,7 @@ public class Comment extends Auditable {
     public Comment(@NotBlank @Size(min = 10, message = "Comment body must be minimum 10 characters") String body) {
         this.body = body;
     }
-    
+
     @JsonIgnore
     public Post getPost() {
         return post;

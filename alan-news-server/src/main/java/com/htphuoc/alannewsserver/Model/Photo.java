@@ -38,6 +38,13 @@ public class Photo extends Auditable {
     @JoinColumn(name = "album_id")
     private Album album;
 
+    public Photo(@NotBlank String title, @NotBlank String url, @NotBlank String thumbnailUrl, Album album) {
+        this.title = title;
+        this.url = url;
+        this.thumbnailUrl = thumbnailUrl;
+        this.album = album;
+    }
+
     @JsonIgnore
     public Album getAlbum() {
         return album;

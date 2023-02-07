@@ -35,14 +35,14 @@ public class CategoryController {
     }
 
     @PostMapping
-    @PreAuthorize("hasRole('ROLE_MODERATOR') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Category> addCategory(@Valid @RequestBody Category category,
                                                 @CurrentUser UserDetailsImpl currentUser) {
         return categoryService.addCategory(category, currentUser);
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('ROLE_MODERATOR') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<Category> updateCategory(@PathVariable(name = "id") Long id,
                                                    @Valid @RequestBody Category newCategory,
                                                    @CurrentUser UserDetailsImpl currentUser) {
@@ -50,7 +50,7 @@ public class CategoryController {
     }
 
     @DeleteMapping("/id")
-    @PreAuthorize("hasRole('ROLE_MODERATOR') or hasRole('ADMIN')")
+    @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     public ResponseEntity<?> deleteCategory(@PathVariable(name = "id") Long id,
                                             @CurrentUser UserDetailsImpl currentUser) {
         return categoryService.deleteCategory(id, currentUser);

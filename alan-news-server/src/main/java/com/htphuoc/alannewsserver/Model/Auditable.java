@@ -26,17 +26,17 @@ import java.time.LocalDateTime;
 public abstract class Auditable {
     @CreatedBy
     @Column(name = "created_by", updatable = false)
-    protected Long createdBy;
+    private Long createdBy;
 
     @CreatedDate
     @Column(name = "created_at", updatable = false)
-    protected LocalDateTime createdAt;
+    private LocalDateTime createdAt;
 
     @LastModifiedBy
     @Column(name = "modified_by")
-    protected Long modifiedBy;
+    private Long modifiedBy;
 
     @LastModifiedDate
     @Column(name = "modified_at")
-    protected LocalDateTime modifiedAt;
+    private LocalDateTime modifiedAt;
 }

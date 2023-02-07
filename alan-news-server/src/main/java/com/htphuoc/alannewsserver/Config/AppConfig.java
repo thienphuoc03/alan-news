@@ -1,6 +1,8 @@
 package com.htphuoc.alannewsserver.Config;
 
 import com.htphuoc.alannewsserver.Security.UserDetailsImpl;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
@@ -13,7 +15,14 @@ import java.util.Optional;
 
 @Configuration
 @EnableJpaAuditing(auditorAwareRef = "auditorProvider")
-public class AuditConfig {
+public class AppConfig {
+    @Bean
+    public ModelMapper modelMapper() {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        return modelMapper;
+    }
+
     @Bean
     AuditorAware<Long> auditorProvider() {
         return new AuditorAwareImpl();
@@ -24,11 +33,6 @@ class AuditorAwareImpl implements AuditorAware<Long> {
     @Override
     public Optional<Long> getCurrentAuditor() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        if (authentication.getPrincipal().toString().equals("anonymousUser") || !authentication.isAuthenticated()) {
-//            return null;
-//        }
-//
-//        String username = ((UserDetailsImpl) authentication.getPrincipal()).getUsername();
 
         if (authentication == null || !authentication.isAuthenticated() ||
                 authentication instanceof AnonymousAuthenticationToken) {

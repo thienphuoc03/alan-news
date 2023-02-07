@@ -72,8 +72,8 @@ public class User extends Auditable {
     @Column(name = "avatar")
     private String avatar;
 
-    @Column(name = "status", columnDefinition = "integer default 1")
-    private Integer status;
+    @Column(name = "is_active", columnDefinition = "boolean default true")
+    private Boolean isActive;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",

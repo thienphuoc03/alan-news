@@ -44,6 +44,9 @@ public class Post extends Auditable {
     @Column(name = "body", columnDefinition = "TEXT")
     private String body;
 
+    @Column(name = "is_active", columnDefinition = "boolean default true")
+    private Boolean isActive;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;

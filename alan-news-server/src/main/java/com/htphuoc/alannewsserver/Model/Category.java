@@ -31,8 +31,8 @@ public class Category extends Auditable {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "status", columnDefinition = "integer default 1")
-    private int status;
+    @Column(name = "is_active", columnDefinition = "boolean default true")
+    private Boolean isActive;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Post> posts;
