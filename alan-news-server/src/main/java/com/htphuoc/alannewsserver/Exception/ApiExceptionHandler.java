@@ -38,9 +38,9 @@ public class ApiExceptionHandler {
         return new ErrorResponse(HttpStatus.CONFLICT, ex.getMessage());
     }
 
-    @ExceptionHandler(TokenRefreshException.class)
-    @ResponseStatus(HttpStatus.FORBIDDEN)
-    public ErrorResponse handlerTokenRefreshException(TokenRefreshException ex, WebRequest req) {
-        return new ErrorResponse(HttpStatus.FORBIDDEN, ex.getMessage());
-    }
+//    @ExceptionHandler(TokenRefreshException.class)
+//    @ResponseStatus(HttpStatus.FORBIDDEN)
+//    public ErrorResponse handlerTokenRefreshException(TokenRefreshException ex, WebRequest req) {
+//        return new ErrorResponse(HttpStatus.FORBIDDEN, ex.getMessage());
+//    }
 }

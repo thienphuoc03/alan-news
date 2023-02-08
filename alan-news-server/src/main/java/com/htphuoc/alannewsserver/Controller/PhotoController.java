@@ -26,7 +26,7 @@ public class PhotoController {
     public PagedResponse<PhotoResponse> getAllPhotos(
             @RequestParam(name = "page", required = false, defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) Integer page,
             @RequestParam(name = "size", required = false, defaultValue = AppConstants.DEFAULT_PAGE_SIZE) Integer size,
-            @RequestParam(name = "sortBy", defaultValue = "createdAt") String sortBy) {
+            @RequestParam(name = "sortBy", defaultValue = AppConstants.DEFAULT_SORT_BY) String sortBy) {
         return photoService.getAllPhotos(page, size, sortBy);
     }
 

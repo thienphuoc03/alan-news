@@ -86,6 +86,20 @@ VALUES ('ROLE_USER');
 | PUT    | /api/photos/{id} | Update photo (logged in user or logged in user is moderator) | [JSON](#photoupdate) |
 | DELETE | /api/photos/{id} | Delete photo (logged in user or logged in user is moderator) | |
 
+### USERS
+
+| Method | Url | Description | Sample Valid Request Body |
+| ------ | --- | ----------- | ------------------------- |
+| GET | /api/users?page={page}&size={size}&sortBy={sortBy} | get all user | |
+| GET | /api/users/{id} | get user by id | |
+| GET | /api/users/{username}/profile | get user profile by username | |
+| GET | /api/users/{username}/posts?page={page}&size={size}&sortBy={sortBy} | get all post by username | |
+| GET | /api/users/{username}/albums?page={page}&size={size}&sortBy={sortBy} | get all album by username | |
+| POST | /api/users | add new user | [JSON](#usercreate) |
+| PUT | /api/users/{id} | update user by id | [JSON](#userupdate) |
+| DELETE | /api/users/{id} | delete user by id | |
+| PUT | /api/users/give-role | give role for user | [JSON](#rolegive)
+
 ## Sample Valid JSON Request Bodys
 
 #### <a id="signin">Sign In</a>
@@ -139,7 +153,7 @@ VALUES ('ROLE_USER');
 }
 ```
 
-##### <a id="photocreate">Create Photo</a>
+#### <a id="photocreate">Create Photo</a>
 
 ```json
 {
@@ -150,7 +164,7 @@ VALUES ('ROLE_USER');
 }
 ```
 
-##### <a id="photoupdate">Update Photo</a>
+#### <a id="photoupdate">Update Photo</a>
 
 ```json
 {
@@ -158,5 +172,39 @@ VALUES ('ROLE_USER');
   "url": "https://via.placeholder.com/600/771796",
   "thumbnailUrl": "https://via.placeholder.com/150/771796",
   "albumId": 2
+}
+```
+
+#### <a id="usercreate">Create User</a>
+
+```json
+{
+  "firstName": "phuoc",
+  "lastName": "ho",
+  "username": "thienphuoc",
+  "password": "123456",
+  "gender": "male",
+  "dob": "22/03/2001",
+  "phoneNumner": "0987654321",
+  "email": "thienphuoc@gmail.com",
+  "address": "aaaaaaaa",
+  "avatar": "/image/avatar.jpg"
+}
+```
+
+#### <a id="userupdate">Update User</a>
+
+```json
+{
+  "firstName": "phuoc",
+  "lastName": "ho",
+  "username": "thienphuoc",
+  "password": "123456",
+  "gender": "male",
+  "dob": "22/03/2001",
+  "phoneNumner": "0987654321",
+  "email": "thienphuoc@gmail.com",
+  "address": "aaaaaaaa",
+  "avatar": "/image/avatar.jpg"
 }
 ```

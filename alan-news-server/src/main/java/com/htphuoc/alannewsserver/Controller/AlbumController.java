@@ -32,7 +32,7 @@ public class AlbumController {
     public PagedResponse<AlbumResponse> getAllAlbums(
             @RequestParam(name = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) Integer page,
             @RequestParam(name = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) Integer size,
-            @RequestParam(name = "sortBy", defaultValue = "createdAt") String sortBy) {
+            @RequestParam(name = "sortBy", defaultValue = AppConstants.DEFAULT_SORT_BY) String sortBy) {
         return albumService.getAllAlbums(page, size, sortBy);
     }
 
@@ -72,7 +72,7 @@ public class AlbumController {
             @PathVariable(name = "id") Long id,
             @RequestParam(name = "page", required = false, defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) Integer page,
             @RequestParam(name = "size", required = false, defaultValue = AppConstants.DEFAULT_PAGE_SIZE) Integer size,
-            @RequestParam(name = "sortBy", defaultValue = "createdAt") String sortBy) {
+            @RequestParam(name = "sortBy", defaultValue = AppConstants.DEFAULT_SORT_BY) String sortBy) {
 
         PagedResponse<PhotoResponse> response = photoService.getAllPhotosByAlbum(id, page, size, sortBy);
 

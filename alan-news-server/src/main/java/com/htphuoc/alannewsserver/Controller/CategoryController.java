@@ -24,7 +24,7 @@ public class CategoryController {
     public PagedResponse<Category> getAllCategory(
             @RequestParam(name = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) int page,
             @RequestParam(name = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size,
-            @RequestParam(name = "sortBy", defaultValue = "createdAt") String sortBy) {
+            @RequestParam(name = "sortBy", defaultValue = AppConstants.DEFAULT_SORT_BY) String sortBy) {
 
         return categoryService.getAllCategory(page, size, sortBy);
     }
