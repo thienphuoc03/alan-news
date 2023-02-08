@@ -95,10 +95,10 @@ VALUES ('ROLE_USER');
 | GET | /api/users/{username}/profile | get user profile by username | |
 | GET | /api/users/{username}/posts?page={page}&size={size}&sortBy={sortBy} | get all post by username | |
 | GET | /api/users/{username}/albums?page={page}&size={size}&sortBy={sortBy} | get all album by username | |
-| POST | /api/users | add new user | [JSON](#usercreate) |
-| PUT | /api/users/{id} | update user by id | [JSON](#userupdate) |
-| DELETE | /api/users/{id} | delete user by id | |
-| PUT | /api/users/give-role | give role for user | [JSON](#rolegive)
+| POST | /api/users | add new user (logged in user is moderator or user) | [JSON](#usercreate) |
+| PUT | /api/users/{id} | update user by id (logged in user is moderator or user) | [JSON](#userupdate) |
+| DELETE | /api/users/{id} | delete user by id (logged in user is user or moderator) | |
+| PUT | /api/users/give-role | give role for user (logged in user is admin) | [JSON](#rolegive)
 
 ## Sample Valid JSON Request Bodys
 
@@ -206,5 +206,14 @@ VALUES ('ROLE_USER');
   "email": "thienphuoc@gmail.com",
   "address": "aaaaaaaa",
   "avatar": "/image/avatar.jpg"
+}
+```
+
+#### <a id="rolegive">Give Role</a>
+
+```json
+{
+  "userId": 3,
+  "roleId": 1
 }
 ```
