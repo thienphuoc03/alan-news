@@ -100,6 +100,17 @@ VALUES ('ROLE_USER');
 | DELETE | /api/users/{id} | delete user by id (logged in user is user or moderator) | |
 | PUT | /api/users/give-role | give role for user (logged in user is admin) | [JSON](#rolegive)
 
+### POSTS
+
+| Method | Url | Description | Sample Valid Request Body |
+| ------ | --- | ----------- | ------------------------- |
+| GET | /api/posts | Get all posts | |
+| GET | /api/posts/{id} | Get post by id | |
+| GET | /api/posts/category/{id} | get post by category id | |
+| POST | /api/posts | Create new post (By logged in user) | [JSON](#postcreate) |
+| PUT | /api/posts/{id} | Update post (logged in user or logged in user is moderator) | [JSON](#postupdate) |
+| DELETE | /api/posts/{id} | Delete post (logged in user or logged in user is moderator) | |
+
 ## Sample Valid JSON Request Bodys
 
 #### <a id="signin">Sign In</a>
@@ -215,5 +226,29 @@ VALUES ('ROLE_USER');
 {
   "userId": 3,
   "roleId": 1
+}
+```
+
+##### <a id="postcreate">Create Post</a>
+
+```json
+{
+  "title": "abc",
+  "thumbnail": "image/thumbnail.jpg",
+  "description": "aaaaaaaaaaa",
+  "body": "aaaaaaaa aaaaaaaaaa aaaaaaaaaaa aaaaaaaaaa",
+  "categoryId": 1
+}
+```
+
+##### <a id="postupdate">Update Post</a>
+
+```json
+{
+  "title": "abc",
+  "thumbnail": "image/thumbnail.jpg",
+  "description": "aaaaaaaaaaa",
+  "body": "aaaaaaaa aaaaaaaaaa aaaaaaaaaaa aaaaaaaaaa",
+  "categoryId": 1
 }
 ```
