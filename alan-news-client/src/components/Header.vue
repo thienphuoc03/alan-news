@@ -1,6 +1,6 @@
 <template>
-  <v-app-bar class="d-flex item-center">
-    <v-container class="d-flex align-center py-4 item-center">
+  <v-app-bar class="d-flex align-center">
+    <v-container class="d-flex align-center py-4 align-center">
       <v-app-bar-title class="pl-0">
         <div class="d-flex align-center font-weight-bold">
           <a href="#" class="text-decoration-none">
@@ -14,8 +14,38 @@
         </div>
       </v-app-bar-title>
 
-      <!-- menu -->
-      <Menu />
+      <!-- Begin menu -->
+      <div class="d-flex justify-center text-center">
+        <v-btn @click="$router.push('/')"> Trang chủ </v-btn>
+
+        <v-menu open-on-hover location="bottom end">
+          <template #activator="{ props }">
+            <v-btn v-bind="props">
+              Tin tức
+              <v-icon icon="mdi-chevron-down"></v-icon>
+            </v-btn>
+          </template>
+
+          <v-list min-width="150" max-width="300">
+            <v-list-item v-for="(category, index) in categories" :key="index">
+              <v-list-item-title>
+                <v-btn
+                  class="text-body-2 w-100 d-flex justify-start"
+                  @click="$router.push('/news')"
+                >
+                  {{ category.name }}
+                </v-btn>
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
+
+      <v-btn @click="$router.push('/about')"> Giới thiệu </v-btn>
+
+      <v-btn @click="$router.push('/about')"> Liên hệ </v-btn>
+
+      <!-- End Menu -->
 
       <v-spacer></v-spacer>
 
@@ -32,7 +62,7 @@
         @click:append-inner="onSearch"
       ></v-text-field>
 
-      <div class="ml-3 d-flex justify-center item-center">
+      <div class="ml-3 d-flex justify-center align-center">
         <!-- Notification icon -->
         <div v-if="isLogin">
           <v-menu open-on-hover location="bottom end">
@@ -118,12 +148,8 @@
 </template>
 
 <script>
-import Menu from '@/components/Menu.vue';
-
 export default {
-  components: {
-    Menu,
-  },
+  components: {},
   data: () => ({
     isLogin: false,
     search: '',
@@ -153,6 +179,29 @@ export default {
       {
         content: 'phuoc commented on your post',
         seen: true,
+      },
+    ],
+    categories: [
+      {
+        name: 'Mobile',
+      },
+      {
+        name: 'Tin ICT',
+      },
+      {
+        name: 'Internet',
+      },
+      {
+        name: 'Khám phá',
+      },
+      {
+        name: 'Công nghệ',
+      },
+      {
+        name: 'Thủ thuật',
+      },
+      {
+        name: 'Sống',
       },
     ],
   }),

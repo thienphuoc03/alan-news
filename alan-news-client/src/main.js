@@ -11,7 +11,10 @@ loadFonts();
 import { loadFonts } from './plugins/webfontloader';
 
 import router from './router';
+import store from './store';
 
-const app = createApp(App);
+import './assets/styles/main.css';
+
+const app = createApp(App).use(store);
 
 app.use(router).use(vuetify).mount('#app');

@@ -13,7 +13,8 @@
 
       <v-card
         flat
-        class="w-100 text-left d-flex justify-center item-center my-3"
+        class="w-100 text-left d-flex justify-center align-center my-3"
+        @Click="$router.push('/news/1')"
       >
         <v-img :src="card.src" width="300" height="200"> </v-img>
 
@@ -21,7 +22,7 @@
           <v-card-item>
             <v-card-title>{{ card.title }}</v-card-title>
 
-            <v-card-subtitle>{{ card.categori }}</v-card-subtitle>
+            <v-card-subtitle>{{ card.category }}</v-card-subtitle>
           </v-card-item>
 
           <v-card-text> {{ card.description }} </v-card-text>
@@ -76,7 +77,7 @@ export default {
         src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
         description:
           'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        categori: 'Mobile',
+        category: 'Mobile',
         createAt: '3 ngày trước',
       },
       {
@@ -86,7 +87,7 @@ export default {
         src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
         description:
           'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        categori: 'Mobile',
+        category: 'Mobile',
         createAt: '3 ngày trước',
       },
       {
@@ -96,17 +97,17 @@ export default {
         src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
         description:
           'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        categori: 'Mobile',
+        category: 'Mobile',
         createAt: '3 ngày trước',
       },
       {
         id: 4,
         title:
           'realme ra mắt điện thoại sạc 240W nhanh nhất thế giới, giá chỉ hơn 11 triệu đồng',
-        src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
+        src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/13/avatar1676281850016-16762818512281966358553.jpg',
         description:
           'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        categori: 'Mobile',
+        category: 'Mobile',
         createAt: '3 ngày trước',
       },
       {
@@ -116,7 +117,7 @@ export default {
         src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
         description:
           'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        categori: 'Mobile',
+        category: 'Mobile',
         createAt: '3 ngày trước',
       },
       {
@@ -126,17 +127,17 @@ export default {
         src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
         description:
           'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        categori: 'Mobile',
+        category: 'Mobile',
         createAt: '3 ngày trước',
       },
       {
         id: 7,
         title:
           'realme ra mắt điện thoại sạc 240W nhanh nhất thế giới, giá chỉ hơn 11 triệu đồng',
-        src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
+        src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/13/avatar1676281850016-16762818512281966358553.jpg',
         description:
           'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        categori: 'Mobile',
+        category: 'Mobile',
         createAt: '3 ngày trước',
       },
       {
@@ -146,7 +147,7 @@ export default {
         src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
         description:
           'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        categori: 'Mobile',
+        category: 'Mobile',
         createAt: '3 ngày trước',
       },
       {
@@ -156,7 +157,7 @@ export default {
         src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
         description:
           'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        categori: 'Mobile',
+        category: 'Mobile',
         createAt: '3 ngày trước',
       },
       {
@@ -166,7 +167,7 @@ export default {
         src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
         description:
           'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        categori: 'Mobile',
+        category: 'Mobile',
         createAt: '3 ngày trước',
       },
       {
@@ -176,7 +177,7 @@ export default {
         src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
         description:
           'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        categori: 'Mobile',
+        category: 'Mobile',
         createAt: '3 ngày trước',
       },
     ],
