@@ -23,7 +23,8 @@ class AuthServices {
   async register(user) {
     return await axios.post(`${baseUrl}/auth/signup`, {
       userName: user.userName,
-      email: user.email,
+      firstname: user.firstname,
+      lastname: user.lastname,
       password: user.password,
     });
   }

@@ -120,14 +120,20 @@
             <v-list v-else min-width="150" max-width="200">
               <v-list-item>
                 <v-list-item-title>
-                  <v-btn class="text-body-2">
+                  <v-btn
+                    class="text-body-2"
+                    @click="$router.push('/auth/signin')"
+                  >
                     <v-icon icon="mdi-login-variant" class="mr-2"></v-icon>
                     Login
                   </v-btn>
                 </v-list-item-title>
 
                 <v-list-item-title>
-                  <v-btn class="text-body-2">
+                  <v-btn
+                    class="text-body-2"
+                    @click="$router.push('/auth/signup')"
+                  >
                     <v-icon icon="mdi-account-plus" class="mr-2"></v-icon>
                     Register
                   </v-btn>

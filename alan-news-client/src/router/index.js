@@ -1,21 +1,28 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
-import AboutView from '../views/AboutView.vue';
-import HelloWorld from '../components/HelloWorld.vue';
-import NewsView from '../views/NewsView.vue';
-import NewsDetailView from '../views/NewsDetailView.vue';
+import Home from '../views/Home.vue';
+import About from '../views/About.vue';
+import Index from '../components/Index.vue';
+import News from '../views/News.vue';
+import NewsDetail from '../views/NewsDetail.vue';
+import Signin from '../views/Signin.vue';
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView,
+    component: Home,
     children: [
-      { path: '', name: 'home', component: HelloWorld },
-      { path: '/news', name: 'news', component: NewsView },
-      { path: '/about', name: 'about', component: AboutView },
-      { path: '/news/1', name: 'newsDetail', component: NewsDetailView },
+      { path: '', name: 'home', component: Index },
+      { path: '/news', name: 'news', component: News },
+      { path: '/about', name: 'about', component: About },
+      { path: '/news/:id', name: 'newsDetail', component: NewsDetail },
     ],
+  },
+
+  {
+    path: '/auth/signin',
+    name: 'signin',
+    component: Signin,
   },
 ];
 
