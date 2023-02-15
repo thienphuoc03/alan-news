@@ -2,8 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import AboutView from '../views/AboutView.vue';
 import HelloWorld from '../components/HelloWorld.vue';
-import News from '../components/News.vue';
-import NewsDetail from '../components/NewsDetail.vue';
+import NewsView from '../views/NewsView.vue';
+import NewsDetailView from '../views/NewsDetailView.vue';
 
 const routes = [
   {
@@ -12,9 +12,9 @@ const routes = [
     component: HomeView,
     children: [
       { path: '', name: 'home', component: HelloWorld },
-      { path: '/news', name: 'news', component: News },
+      { path: '/news', name: 'news', component: NewsView },
       { path: '/about', name: 'about', component: AboutView },
-      { path: '/news/1', name: 'newsDetail', component: NewsDetail },
+      { path: '/news/1', name: 'newsDetail', component: NewsDetailView },
     ],
   },
 ];

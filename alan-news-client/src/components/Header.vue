@@ -148,6 +148,8 @@
 </template>
 
 <script>
+import Category from '../services/CategoryServices';
+
 export default {
   components: {},
   data: () => ({
@@ -181,32 +183,14 @@ export default {
         seen: true,
       },
     ],
-    categories: [
-      {
-        name: 'Mobile',
-      },
-      {
-        name: 'Tin ICT',
-      },
-      {
-        name: 'Internet',
-      },
-      {
-        name: 'Khám phá',
-      },
-      {
-        name: 'Công nghệ',
-      },
-      {
-        name: 'Thủ thuật',
-      },
-      {
-        name: 'Sống',
-      },
-    ],
+    categories: [],
+    page: 1,
+    size: 10,
+    sortBy: 'createAt',
   }),
   mounted() {
     this.countNewNotification();
+    this.getAllCategory();
   },
   methods: {
     onChangeTheme() {
@@ -235,6 +219,16 @@ export default {
     setSeen(notification) {
       notification.seen = true;
       this.countNewNotification();
+    },
+
+    async getAllCategory() {
+      Category.getAllCategory(this.page, this.size, this.sortBy)
+        .then(response => {
+          this.categories = response.data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
     },
   },
 };

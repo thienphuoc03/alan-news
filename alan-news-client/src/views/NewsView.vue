@@ -14,7 +14,7 @@
       <v-card
         flat
         class="w-100 text-left d-flex justify-center align-center my-3"
-        @Click="$router.push('/news/1')"
+        @click="$router.push('/news/1')"
       >
         <v-img :src="card.src" width="300" height="200"> </v-img>
 
@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import Breadcrumb from './Breadcrumb.vue';
+import Breadcrumb from '../components/Breadcrumb.vue';
 
 export default {
   components: {

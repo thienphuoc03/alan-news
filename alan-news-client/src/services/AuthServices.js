@@ -1,10 +1,12 @@
 import axios from 'axios';
 import TokenService from './refresh.token';
 
+const baseUrl = process.env.SERVER_URL;
+
 class AuthServices {
   async login(user) {
     return await axios
-      .post('/auth/signin', {
+      .post(`${baseUrl}/auth/signin`, {
         userName: user.userName,
         password: user.password,
       })
@@ -19,14 +21,10 @@ class AuthServices {
   }
 
   async register(user) {
-    return await axios.post('/auth/signup', {
+    return await axios.post(`${baseUrl}/auth/signup`, {
       userName: user.userName,
-      firstName: user.firstName,
-      lastName: user.lastName,
       email: user.email,
-      phone: user.phone,
       password: user.password,
-      typeUser: { id: user.typeUserId },
     });
   }
 }
