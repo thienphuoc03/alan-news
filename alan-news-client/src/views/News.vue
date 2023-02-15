@@ -8,24 +8,24 @@
       ><a>Công nghệ</a></span
     >
 
-    <div v-for="card in cards" :key="card.id">
+    <div v-for="post in posts" :key="post.id">
       <v-divider></v-divider>
 
       <v-card
         flat
         class="w-100 text-left d-flex justify-center align-center my-3"
-        @click="$router.push('/news/1')"
+        @click="$router.push(`/news/${post.id}`)"
       >
-        <v-img :src="card.src" width="300" height="200"> </v-img>
+        <v-img :src="post.thumbnail" width="300" height="200"> </v-img>
 
         <div>
           <v-card-item>
-            <v-card-title>{{ card.title }}</v-card-title>
+            <v-card-title>{{ post.title }}</v-card-title>
 
-            <v-card-subtitle>{{ card.category }}</v-card-subtitle>
+            <v-card-subtitle>{{ post.category }}</v-card-subtitle>
           </v-card-item>
 
-          <v-card-text> {{ card.description }} </v-card-text>
+          <v-card-text> {{ post.description }} </v-card-text>
         </div>
       </v-card>
     </div>
@@ -38,7 +38,7 @@
               <v-pagination
                 v-model="page"
                 class="my-4"
-                :length="15"
+                :length="posts.totalPages"
               ></v-pagination>
             </v-container>
           </v-col>
@@ -50,6 +50,7 @@
 
 <script>
 import Breadcrumb from '../components/Breadcrumb.vue';
+import PostServices from '../services/PostServices';
 
 export default {
   components: {
@@ -69,120 +70,23 @@ export default {
       },
     ],
 
-    cards: [
-      {
-        id: 1,
-        title:
-          'realme ra mắt điện thoại sạc 240W nhanh nhất thế giới, giá chỉ hơn 11 triệu đồng',
-        src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
-        description:
-          'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        category: 'Mobile',
-        createAt: '3 ngày trước',
-      },
-      {
-        id: 2,
-        title:
-          'realme ra mắt điện thoại sạc 240W nhanh nhất thế giới, giá chỉ hơn 11 triệu đồng',
-        src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
-        description:
-          'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        category: 'Mobile',
-        createAt: '3 ngày trước',
-      },
-      {
-        id: 3,
-        title:
-          'realme ra mắt điện thoại sạc 240W nhanh nhất thế giới, giá chỉ hơn 11 triệu đồng',
-        src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
-        description:
-          'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        category: 'Mobile',
-        createAt: '3 ngày trước',
-      },
-      {
-        id: 4,
-        title:
-          'realme ra mắt điện thoại sạc 240W nhanh nhất thế giới, giá chỉ hơn 11 triệu đồng',
-        src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/13/avatar1676281850016-16762818512281966358553.jpg',
-        description:
-          'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        category: 'Mobile',
-        createAt: '3 ngày trước',
-      },
-      {
-        id: 5,
-        title:
-          'realme ra mắt điện thoại sạc 240W nhanh nhất thế giới, giá chỉ hơn 11 triệu đồng',
-        src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
-        description:
-          'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        category: 'Mobile',
-        createAt: '3 ngày trước',
-      },
-      {
-        id: 6,
-        title:
-          'realme ra mắt điện thoại sạc 240W nhanh nhất thế giới, giá chỉ hơn 11 triệu đồng',
-        src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
-        description:
-          'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        category: 'Mobile',
-        createAt: '3 ngày trước',
-      },
-      {
-        id: 7,
-        title:
-          'realme ra mắt điện thoại sạc 240W nhanh nhất thế giới, giá chỉ hơn 11 triệu đồng',
-        src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/13/avatar1676281850016-16762818512281966358553.jpg',
-        description:
-          'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        category: 'Mobile',
-        createAt: '3 ngày trước',
-      },
-      {
-        id: 8,
-        title:
-          'realme ra mắt điện thoại sạc 240W nhanh nhất thế giới, giá chỉ hơn 11 triệu đồng',
-        src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
-        description:
-          'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        category: 'Mobile',
-        createAt: '3 ngày trước',
-      },
-      {
-        id: 9,
-        title:
-          'realme ra mắt điện thoại sạc 240W nhanh nhất thế giới, giá chỉ hơn 11 triệu đồng',
-        src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
-        description:
-          'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        category: 'Mobile',
-        createAt: '3 ngày trước',
-      },
-      {
-        id: 10,
-        title:
-          'realme ra mắt điện thoại sạc 240W nhanh nhất thế giới, giá chỉ hơn 11 triệu đồng',
-        src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
-        description:
-          'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        category: 'Mobile',
-        createAt: '3 ngày trước',
-      },
-      {
-        id: 11,
-        title:
-          'realme ra mắt điện thoại sạc 240W nhanh nhất thế giới, giá chỉ hơn 11 triệu đồng',
-        src: 'https://genk.mediacdn.vn/zoom/260_162/139269124445442048/2023/2/9/avatar1675936290616-16759362913211433552399.jpg',
-        description:
-          'realme GT Neo5 là mẫu smartphone mới nhất của realme, nổi bật với hiệu năng mạnh mẽ và khả năng sạc siêu nhanh nhờ công nghệ sạc 240W đầu tiên trên thị trường.',
-        category: 'Mobile',
-        createAt: '3 ngày trước',
-      },
-    ],
+    posts: [],
 
     page: 1,
+    size: 10,
+    sortBy: 'createAt',
   }),
+
+  methods: {
+    async getAllPost() {
+      PostServices.getAllPost(this.page, this.size, this.sortBy)
+        .then(response => {
+          this.posts = response.data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+  },
 };
 </script>

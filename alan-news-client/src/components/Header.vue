@@ -154,7 +154,7 @@
 </template>
 
 <script>
-import Category from '../services/CategoryServices';
+import CategoryServices from '../services/CategoryServices';
 
 export default {
   components: {},
@@ -228,7 +228,7 @@ export default {
     },
 
     async getAllCategory() {
-      Category.getAllCategory(this.page, this.size, this.sortBy)
+      CategoryServices.getAllCategory(this.page, this.size, this.sortBy)
         .then(response => {
           this.categories = response.data;
         })
