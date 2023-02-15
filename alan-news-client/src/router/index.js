@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue';
-import About from '../views/About.vue';
-import Index from '../components/Index.vue';
-import News from '../views/News.vue';
-import NewsDetail from '../views/NewsDetail.vue';
-import Signin from '../views/Signin.vue';
+import Home from '../views/user/Home.vue';
+import About from '../views/user/About.vue';
+import Index from '../components/user/Index.vue';
+import News from '../views/user/News.vue';
+import NewsDetail from '../views/user/NewsDetail.vue';
+import Signin from '../views/user/Signin.vue';
 
 const routes = [
   {

@@ -49,8 +49,8 @@
 </template>
 
 <script>
-import Breadcrumb from '../components/Breadcrumb.vue';
-import PostServices from '../services/PostServices';
+import Breadcrumb from '../../components/user/Breadcrumb.vue';
+import PostServices from '../../services/PostServices';
 
 export default {
   components: {
