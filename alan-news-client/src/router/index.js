@@ -4,7 +4,14 @@ import About from '../views/user/About.vue';
 import Index from '../components/user/Index.vue';
 import News from '../views/user/News.vue';
 import NewsDetail from '../views/user/NewsDetail.vue';
-import Signin from '../views/user/Signin.vue';
+import Signin from '../views/Signin.vue';
+
+// Admin Pages
+import AdminLayout from '../views/admin/AdminLayout.vue';
+import Dashboard from '../views/admin/Dashboard.vue';
+import UserView from '../views/admin/UserView.vue';
+import CategoryView from '../views/admin/CategoryView.vue';
+import PostView from '../views/admin/PostView.vue';
 
 const routes = [
   {
@@ -16,6 +23,18 @@ const routes = [
       { path: '/news', name: 'news', component: News },
       { path: '/about', name: 'about', component: About },
       { path: '/news/:id', name: 'newsDetail', component: NewsDetail },
+    ],
+  },
+
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: AdminLayout,
+    children: [
+      { path: '', name: 'dashboard', component: Dashboard },
+      { path: '/users', name: 'users', component: UserView },
+      { path: '/categories', name: 'categories', component: CategoryView },
+      { path: '/posts', name: 'posts', component: PostView },
     ],
   },
 

@@ -7,6 +7,9 @@ import colors from 'vuetify/lib/util/colors';
 import { createVuetify } from 'vuetify';
 
 export default createVuetify({
+  icons: {
+    iconfont: 'fa' || 'md' || 'mdi',
+  },
   theme: {
     themes: {
       light: {

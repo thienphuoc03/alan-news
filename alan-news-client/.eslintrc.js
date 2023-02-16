@@ -12,6 +12,13 @@ module.exports = {
   plugins: ['vue'],
   rules: {
     'vue/multi-word-component-names': 0,
+    'vue/attribute-hyphenation': 'off',
+    'vue/valid-v-slot': [
+      'error',
+      {
+        allowModifiers: true,
+      },
+    ],
   },
   overrides: [],
 };

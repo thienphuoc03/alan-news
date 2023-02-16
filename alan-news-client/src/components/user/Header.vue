@@ -154,7 +154,7 @@
 </template>
 
 <script>
-import CategoryServices from '../services/CategoryServices';
+import CategoryServices from '../../services/CategoryServices';
 
 export default {
   components: {},
