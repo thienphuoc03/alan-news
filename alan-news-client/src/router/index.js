@@ -9,9 +9,11 @@ import Signin from '../views/Signin.vue';
 // Admin Pages
 import AdminLayout from '../views/admin/AdminLayout.vue';
 import Dashboard from '../views/admin/Dashboard.vue';
-import UserView from '../views/admin/UserView.vue';
-import CategoryView from '../views/admin/CategoryView.vue';
-import PostView from '../views/admin/PostView.vue';
+import UserView from '../views/admin/user/UserView.vue';
+import CategoryView from '../views/admin/category/CategoryView.vue';
+import PostView from '../views/admin/post/PostView.vue';
+import UserCreate from '../views/admin/user/UserCreate.vue';
+import PostCreate from '../views/admin/post/PostCreate.vue';
 
 const routes = [
   {
@@ -32,9 +34,23 @@ const routes = [
     component: AdminLayout,
     children: [
       { path: '', name: 'dashboard', component: Dashboard },
-      { path: '/users', name: 'users', component: UserView },
-      { path: '/categories', name: 'categories', component: CategoryView },
-      { path: '/posts', name: 'posts', component: PostView },
+      { path: '/dashboard/users', name: 'users', component: UserView },
+      {
+        path: '/dashboard/user-create',
+        name: 'user-create',
+        component: UserCreate,
+      },
+      {
+        path: '/dashboard/categories',
+        name: 'categories',
+        component: CategoryView,
+      },
+      { path: '/dashboard/posts', name: 'posts', component: PostView },
+      {
+        path: '/dashboard/post-create',
+        name: 'post-create',
+        component: PostCreate,
+      },
     ],
   },
 

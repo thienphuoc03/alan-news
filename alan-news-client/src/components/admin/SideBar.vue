@@ -35,19 +35,19 @@
         prepend-icon="mdi-table-account"
         title="User Management"
         value="users-management"
-        @click="$router.push('/users')"
+        @click="$router.push('/dashboard/users')"
       ></v-list-item>
       <v-list-item
         prepend-icon="mdi-table-large-plus"
         title="Cate Managementgories"
         value="categories-management"
-        @click="$router.push('/categories')"
+        @click="$router.push('/dashboard/categories')"
       ></v-list-item>
       <v-list-item
         prepend-icon="mdi-table-edit"
         title="Post Managements"
         value="posts-management"
-        @click="$router.push('/posts')"
+        @click="$router.push('/dashboard/posts')"
       ></v-list-item>
 
       <v-divider></v-divider>

@@ -42,7 +42,9 @@
                             :rules="[rules.required, rules.min]"
                             clearable
                             :type="show1 ? 'text' : 'password'"
-                            :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+                            :append-inner-icon="
+                              show1 ? 'mdi-eye' : 'mdi-eye-off'
+                            "
                             @click:append="show1 = !show1"
                           />
                           <v-row>
@@ -200,7 +202,9 @@
                             :rules="[rules.required, rules.min]"
                             clearable
                             :type="show2 ? 'text' : 'password'"
-                            :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+                            :append-inner-icon="
+                              show2 ? 'mdi-eye' : 'mdi-eye-off'
+                            "
                             @click:append="show2 = !show2"
                           />
                           <v-text-field
@@ -213,7 +217,9 @@
                             :rules="[rules.required, rules.min]"
                             clearable
                             :type="show3 ? 'text' : 'password'"
-                            :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+                            :append-inner-icon="
+                              show3 ? 'mdi-eye' : 'mdi-eye-off'
+                            "
                             @click:append="show3 = !show3"
                           />
                           <v-row>

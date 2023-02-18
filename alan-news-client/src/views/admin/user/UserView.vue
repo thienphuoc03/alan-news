@@ -1,7 +1,7 @@
 <template>
   <v-container max-height="92%" class="h-92">
     <div class="text-right">
-      <v-btn color="success">
+      <v-btn color="success" @click="$router.push('/dashboard/user-create')">
         <v-icon>mdi-plus</v-icon>
         Add New
       </v-btn>
@@ -86,7 +86,7 @@
 </template>
 
 <script>
-import UserServices from '../../services/UserServices';
+import UserServices from '../../../services/UserServices';
 
 export default {
   data: () => ({

@@ -1,7 +1,7 @@
 <template>
   <v-container max-height="92%" class="h-92">
     <div class="text-right">
-      <v-btn color="success">
+      <v-btn color="success" @click="$router.push('/dashboard/create-create')">
         <v-icon>mdi-plus</v-icon>
         Add New
       </v-btn>
@@ -10,19 +10,29 @@
       <thead>
         <tr class="bg-blue-grey-lighten-4">
           <th>ID</th>
-          <th>Name</th>
+          <th>Thumbnail</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>User Id</th>
+          <th>Category</th>
           <th>isActive</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="category in categories" :key="category.id" class="text-left">
-          <td>{{ category.id }}</td>
-          <td>{{ category.name }}</td>
+        <tr v-for="post in posts" :key="post.id" class="text-left">
+          <td>{{ post.id }}</td>
+          <td>
+            <v-img :src="post.thumbnail"></v-img>
+          </td>
+          <td>{{ post.title }}</td>
+          <td>{{ post.description }}</td>
+          <td>{{ post.userId }}</td>
+          <td>{{ post.category }}</td>
           <td>
             <v-combobox
               v-model="selectedAccount"
-              :items="category.isActive"
+              :items="post.isActive"
               label="Select account"
               :class="selectedAccount.isActive ? 'success' : 'error'"
             >
@@ -57,7 +67,7 @@
               <v-pagination
                 v-model="page"
                 class="my-4"
-                :length="categories.totalPages"
+                :length="totalPages"
               ></v-pagination>
             </v-container>
           </v-col>
@@ -68,12 +78,12 @@
 </template>
 
 <script>
-import CategoryServices from '../../services/CategoryServices';
+import PostServices from '../../../services/PostServices';
 
 export default {
   data: () => ({
     selectedActive: null,
-    categories: [],
+    posts: [],
     page: 1,
     size: 10,
     sortBy: 'createAt',
@@ -81,13 +91,13 @@ export default {
     totalElements: 0,
   }),
   mounted() {
-    this.getAllCategory();
+    this.getAllPost();
   },
   methods: {
-    async getAllCategory() {
-      CategoryServices.getAllCategory(this.page, this.size, this.sortBy)
+    async getAllPost() {
+      PostServices.getAllPost(this.page, this.size, this.sortBy)
         .then(response => {
-          this.categories = response.data.content;
+          this.posts = response.data.content;
           this.page = response.data.page;
           this.size = response.data.size;
           this.totalElements = response.data.totalElements;
