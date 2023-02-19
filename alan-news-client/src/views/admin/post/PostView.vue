@@ -50,7 +50,7 @@
               <v-btn>
                 <v-icon color="warning"> mdi-pencil </v-icon>
               </v-btn>
-              <v-btn>
+              <v-btn @click="deletePost(post.id)">
                 <v-icon color="error"> mdi-delete </v-icon>
               </v-btn>
             </div>
@@ -104,6 +104,18 @@ export default {
           this.totalPages = response.data.totalPages;
         })
         .catch(error => {
+          console.log(error);
+        });
+    },
+
+    async deletePost(id) {
+      PostServices.deletePost(id)
+        .then(() => {
+          alert('Post deleted successfully!!!');
+          this.getAllPost();
+        })
+        .catch(error => {
+          alert('Lỗi!!!');
           console.log(error);
         });
     },

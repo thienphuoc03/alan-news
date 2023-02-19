@@ -40,7 +40,7 @@
               <v-btn>
                 <v-icon color="warning"> mdi-pencil </v-icon>
               </v-btn>
-              <v-btn>
+              <v-btn @click="deleteCategory(category.id)">
                 <v-icon color="error"> mdi-delete </v-icon>
               </v-btn>
             </div>
@@ -94,6 +94,30 @@ export default {
           this.totalPages = response.data.totalPages;
         })
         .catch(error => {
+          console.log(error);
+        });
+    },
+
+    async updateCategory(id, name) {
+      CategoryServices.updateCategory(id, name)
+        .then(() => {
+          alert('Category updated successfully!!!');
+          this.getAllCategory();
+        })
+        .catch(error => {
+          alert('Lỗi!!!');
+          console.log(error);
+        });
+    },
+
+    async deleteCategory(id) {
+      CategoryServices.deleteCategory(id)
+        .then(() => {
+          alert('Category deleted successfully!!!');
+          this.getAllCategory();
+        })
+        .catch(error => {
+          alert('Lỗi!!!');
           console.log(error);
         });
     },

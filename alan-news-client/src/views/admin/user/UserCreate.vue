@@ -171,6 +171,18 @@ export default {
     address: '',
     role: '',
     avatar: '',
+
+    usernameNew: '',
+    firstnameNew: '',
+    lastnameNew: '',
+    passwordNew: '',
+    dobNew: '',
+    genderNew: '',
+    phoneNumberNew: '',
+    emailNew: '',
+    addressNew: '',
+    roleNew: '',
+    avatarNew: '',
   }),
   watch: {
     selectedFile(newFile) {
@@ -200,6 +212,29 @@ export default {
       };
       UserServices.addUser(user)
         .then(this.$snackbar.open('User created successfully'))
+        .catch(error => {
+          console.log(error);
+        });
+    },
+
+    async UpdateUser(id) {
+      const user = {
+        username: this.usernameNew,
+        password: this.passwordNew,
+        firstname: this.firstnameNew,
+        lastname: this.lastnameNew,
+        dob: this.dobNew,
+        gender: this.genderNew,
+        phoneNumber: this.phoneNumberNew,
+        email: this.emailNew,
+        address: this.addressNew,
+        role: this.roleNew,
+        avatar: this.avatarNew,
+      };
+      UserServices.updateUser(id, user)
+        .then(() => {
+          this.$snackbar.open('User created successfully');
+        })
         .catch(error => {
           console.log(error);
         });

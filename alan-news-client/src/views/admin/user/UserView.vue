@@ -58,7 +58,7 @@
               <v-btn>
                 <v-icon color="warning"> mdi-pencil </v-icon>
               </v-btn>
-              <v-btn>
+              <v-btn @click="deleteUser(user.id)">
                 <v-icon color="error"> mdi-delete </v-icon>
               </v-btn>
             </div>
@@ -112,6 +112,18 @@ export default {
           this.totalPages = response.data.totalPages;
         })
         .catch(error => {
+          console.log(error);
+        });
+    },
+
+    async deleteUser(id) {
+      UserServices.deleteUser(id)
+        .then(() => {
+          alert('User deleted successfully!!!');
+          this.getAllUser();
+        })
+        .catch(error => {
+          alert('Lỗi!!!');
           console.log(error);
         });
     },

@@ -66,22 +66,38 @@ const router = createRouter({
   routes,
 });
 
-// router.beforeEach((to, from, next) => {
-//   let publicPages = ['/auth/login', '/'];
-//   const authRequired = !publicPages.includes(to.path);
-//   const loggedIn = JSON.parse(localStorage.getItem('user'));
+router.beforeEach((to, from, next) => {
+  let publicPages = ['/auth/login', '/'];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = JSON.parse(localStorage.getItem('user'));
 
-//   const role = localStorage.getItem('user').role;
-//   if (loggedIn != null && (role === 'ROLE_ADMIN' || role === 'ROLE_MOD')) {
-//     publicPages = ['/dashboard', '/dashboard/profile'];
-//   } else if (loggedIn != null && role === 'ROLE_USER') {
-//     publicPages = ['/', '/news', '/about'];
-//   }
-//   if (authRequired && !loggedIn) {
-//     next('/');
-//   } else {
-//     next();
-//   }
-// });
+  const role = localStorage.getItem('user').role;
+  if (loggedIn != null && (role === 'ROLE_ADMIN' || role === 'ROLE_MOD')) {
+    publicPages = [
+      '/dashboard',
+      '/dashboard/profile',
+      '/dashboard/users',
+      '/dashboard/user-create',
+      '/dashboard/categories',
+      '/dashboard/posts',
+      '/dashboard/post-create',
+      '/dashboard/profile',
+    ];
+  } else if (loggedIn != null && role === 'ROLE_USER') {
+    publicPages = [
+      '/',
+      '/news',
+      '/about',
+      '/profile',
+      '/news/:id',
+      '/news/category/:id',
+    ];
+  }
+  if (authRequired && !loggedIn) {
+    next('/');
+  } else {
+    next();
+  }
+});
 
 export default router;

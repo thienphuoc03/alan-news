@@ -40,6 +40,11 @@ export default {
     category: '',
     categories: [],
     content: '',
+    titleNew: '',
+    descriptionNew: '',
+    thumbnailNew: null,
+    categoryNew: '',
+    contentNew: '',
   }),
 
   methods: {
@@ -63,6 +68,25 @@ export default {
       };
       PostServices.addPost(post)
         .then(this.$snackbar.open('Post created successfully'))
+        .catch(error => {
+          console.log(error);
+        });
+    },
+
+    async UpdatePost(id) {
+      const post = {
+        title: this.titleNew,
+        description: this.descriptionNew,
+        thumbnail: this.thumbnailNew,
+        categoryId: this.categoryNew,
+        body: this.contentNew,
+      };
+      PostServices.updatePost(id, post)
+        .then(() => {
+          this.$snackbar.open('Post updated successfully');
+          this.$router.push('/dashboard/posts');
+        })
+
         .catch(error => {
           console.log(error);
         });
